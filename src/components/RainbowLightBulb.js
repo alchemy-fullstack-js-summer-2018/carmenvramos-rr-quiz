@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getSelectedColor } from './reducers';
+import PropTypes from 'prop-types';
 
 class RainbowLightBulb extends Component {
 
@@ -6,6 +9,10 @@ class RainbowLightBulb extends Component {
     on: true
   };
  
+  static propTypes = {
+    selectedColor: PropTypes.string
+  };
+
 
   handleClick = () => {
     this.setState(({ on }) => ({ on: !on }));
@@ -13,6 +20,7 @@ class RainbowLightBulb extends Component {
   
   render() { 
     const { on } = this.state;
+    const { selectedColor } = this.props;
    
 
     return (
@@ -24,10 +32,17 @@ class RainbowLightBulb extends Component {
           {on ? 'ON' : 'OFF'}
         </button>
 
+        {on &&
+          <span style={{ backgroundColor: selectedColor }} className="color">{selectedColor}</span>
+        }
        
       </section>
     );
   }
 }
  
-export default (RainbowLightBulb);
+export default connect(
+  state => ({
+    selectedColor: getSelectedColor(state)
+  })
+)(RainbowLightBulb);
