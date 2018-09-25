@@ -11,8 +11,8 @@ class ColorChooser extends Component {
   static propTypes = {
     colors: PropTypes.array,
     selectedColor: PropTypes.string,
-    loadColors: PropTypes.func,
     onSelect: PropTypes.func,
+    loadColors: PropTypes.func,
     addColor: PropTypes.func,
     selectColor: PropTypes.func
   };
@@ -30,16 +30,18 @@ class ColorChooser extends Component {
 
     return (
       <Fragment>
-        <h2>ColorChooser</h2>
+        <h2>Color Chooser</h2>
 
         <ul>
           {colors.map(color => {
-            return <Color key={color} color={color} selectColor={selectColor} onSelect={this.handleSelect} />;
+            return <Color key={color} 
+              color={color} 
+              selectColor={selectColor} 
+              onSelect={this.handleSelect} />;
           })}
         </ul>
 
         <AddColor addColor={addColor}/>
-
       </Fragment>
     );
   }

@@ -33,9 +33,9 @@ class RainbowLightBulb extends Component {
         </button>
 
         {on &&
-          <span style={{ backgroundColor: selectedColor }} className="color">{selectedColor}</span>
+          <span style={{ backgroundColor: selectedColor }} 
+            className="color">{selectedColor}</span>
         }
-       
       </section>
     );
   }

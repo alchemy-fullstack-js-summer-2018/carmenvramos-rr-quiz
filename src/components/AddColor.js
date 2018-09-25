@@ -26,7 +26,11 @@ class AddColor extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type='text' value={color} name='color' onChange={this.handleChange}/>
+        <input type='text' 
+          value={color} 
+          name='color' 
+          onChange={this.handleChange}/>
+          
         <button type='submit'>Add Color</button>
       </form>
     );
