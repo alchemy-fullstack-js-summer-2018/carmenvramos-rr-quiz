@@ -1,5 +1,5 @@
-import { COLORS_LOAD, COLORS_ADD } from './reducers';
-import { loadColors, addColor } from './actions';
+import { COLORS_LOAD, COLORS_ADD, SELECT_COLOR } from './reducers';
+import { loadColors, addColor, selectColor } from './actions';
 
 describe('Colors AC', () => {
 
@@ -17,5 +17,10 @@ describe('Colors AC', () => {
     expect(payload).toEqual(color);
   });
  
-
+  it('creates an action that selects a color', () => {
+    const color = 'red';
+    const { type, payload } = selectColor(color);
+    expect(type).toBe(SELECT_COLOR);
+    expect(payload).toBe(color);
+  });
 });
