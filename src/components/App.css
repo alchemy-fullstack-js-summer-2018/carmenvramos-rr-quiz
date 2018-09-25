@@ -17,4 +17,8 @@ header {
 
 main {
   padding: 8px;
+
+  button {
+    margin: 15px;
+  }
 }
